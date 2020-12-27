@@ -16,6 +16,8 @@ set(hdrs
     ${root}/imconfig.h)
 set(srcs 
     ${root}/imgui.cpp
+    ${root}/imgui_draw.cpp
+    ${root}/imgui_widgets.cpp
     ${root}/examples/imgui_impl_sdl.cpp
     ${root}/examples/imgui_impl_glfw.cpp)
 

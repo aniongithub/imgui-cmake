@@ -5,7 +5,12 @@ set(inst_src_dir include/imgui_src)
 
 set(root ${CMAKE_CURRENT_SOURCE_DIR}/imgui)
 set(phdrs ${root}/imgui.h)
-set(hdrs ${root}/stb_rect_pack.h ${root}/stb_textedit.h ${root}/stb_truetype.h)
+set(hdrs 
+    ${root}/imstb_rectpack.h 
+    ${root}/imstb_textedit.h 
+    ${root}/imstb_truetype.h 
+    ${root}/imconfig.h
+    )
 set(srcs ${root}/imgui.cpp)
 set(inst_srcs ${inst_src_dir}/imgui.cpp)
 

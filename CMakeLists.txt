@@ -5,13 +5,19 @@ set(inst_src_dir include/imgui_src)
 
 set(root ${CMAKE_CURRENT_SOURCE_DIR}/imgui)
 set(phdrs ${root}/imgui.h)
+set(implhdrs
+    ${root}/examples/imgui_impl_sdl.h
+    ${root}/examples/imgui_impl_glfw.h)
 set(hdrs 
     ${root}/imstb_rectpack.h 
     ${root}/imstb_textedit.h 
     ${root}/imstb_truetype.h 
-    ${root}/imconfig.h
-    )
-set(srcs ${root}/imgui.cpp)
+    ${root}/imconfig.h)
+set(srcs 
+    ${root}/imgui.cpp
+    ${root}/examples/imgui_impl_sdl.cpp
+    ${root}/examples/imgui_impl_glfw.cpp)
+
 set(inst_srcs ${inst_src_dir}/imgui.cpp)
 
 add_library(imgui INTERFACE)
@@ -42,6 +48,7 @@ install(EXPORT imgui-targets
     DESTINATION lib/cmake/imgui)
 
 install(FILES ${phdrs} DESTINATION include)
+install(FILES ${implhdrs} DESTINATION include/impls)
 install(FILES ${root}/imconfig.h DESTINATION include RENAME imconfig-sample.h)
 
 # create config-module

@@ -9,6 +9,7 @@ set(implhdrs
     ${root}/examples/imgui_impl_sdl.h
     ${root}/examples/imgui_impl_glfw.h)
 set(hdrs 
+    ${root}/imgui_internal.h
     ${root}/imstb_rectpack.h 
     ${root}/imstb_textedit.h 
     ${root}/imstb_truetype.h 

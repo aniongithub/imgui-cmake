@@ -21,7 +21,12 @@ set(srcs
     ${root}/examples/imgui_impl_sdl.cpp
     ${root}/examples/imgui_impl_glfw.cpp)
 
-set(inst_srcs ${inst_src_dir}/imgui.cpp)
+set(inst_srcs
+    ${inst_src_dir}/imgui.cpp
+    ${inst_src_dir}/imgui_draw.cpp
+    ${inst_src_dir}/imgui_widgets.cpp
+    ${inst_src_dir}/examples/imgui_impl_sdl.cpp
+    ${inst_src_dir}/examples/imgui_impl_glfw.cpp)
 
 add_library(imgui INTERFACE)
 

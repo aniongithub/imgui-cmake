@@ -13,7 +13,7 @@ add_subdirectory(imgui-glfw)
 add_subdirectory(imgui-opengl2)
 add_subdirectory(imgui-opengl3)
 
-# add_subdirectory(examples/example_glfw_opengl3)
+add_subdirectory(examples/example_glfw_opengl3)
 
 configure_file(${project}-config.cmake
   "${CMAKE_BINARY_DIR}/${project}-config.cmake"

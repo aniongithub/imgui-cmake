@@ -1,12 +1,12 @@
 cmake_minimum_required(VERSION 2.8.12)
 
-project(example_glfw_opengl3)
+project(example_sdl_opengl3)
 
 set(OpenGL_GL_PREFERENCE "GLVND")
 find_package(OpenGL REQUIRED)
 
-find_package(imgui QUIET COMPONENTS imgui-core imgui-glfw imgui-opengl3)
-find_package(glfw3 REQUIRED CONFIG)
+find_package(imgui QUIET COMPONENTS imgui-core imgui-sdl imgui-opengl3)
+find_package(SDL2 REQUIRED CONFIG)
 
 find_package(GLEW REQUIRED)
 
@@ -15,13 +15,14 @@ add_executable(${PROJECT_NAME} ${srcs})
 
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${OPENGL_INCLUDE_DIR}
+    ${SDL2_INCLUDE_DIRS}
     imgui)
 
 target_link_libraries(${PROJECT_NAME}
         ${CMAKE_DL_LIBS}
-        glfw
+        ${SDL2_LIBRARIES}
         imgui-core
-        imgui-glfw
+        imgui-sdl
         imgui-opengl3
         GLEW::glew
         OpenGL::GL

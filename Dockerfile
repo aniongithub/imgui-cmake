@@ -16,6 +16,7 @@ RUN apt-get update &&\
         git \
         libglfw3-dev \
         libglew-dev \
+        libsdl2-dev \
         xorg-dev \
         apt-utils \
         dialog \

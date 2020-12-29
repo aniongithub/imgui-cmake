@@ -14,6 +14,11 @@ if (${IMGUI_GLFW_IMPL})
   add_subdirectory(imgui-glfw)
 endif()
 
+option(IMGUI_SDL_IMPL "Build SDL impl" ON)
+if (${IMGUI_SDL_IMPL})
+  add_subdirectory(imgui-sdl)
+endif()
+
 option(IMGUI_OPENGL2_IMPL "Build OpenGL2 impl" OFF)
 if (${IMGUI_OPENGL2_IMPL})
   add_subdirectory(imgui-opengl2)
@@ -24,9 +29,14 @@ if (${IMGUI_OPENGL3_IMPL})
   add_subdirectory(imgui-opengl3)
 endif()
 
-option(IMGUI_GLFW_OPENGL3_SAMPLE "Build GLFW + OpenGL3 example" ON)
-if (${IMGUI_GLFW_OPENGL3_SAMPLE})
+option(BUILD_GLFW_OPENGL3_SAMPLE "Build GLFW + OpenGL3 example" ON)
+if (${BUILD_GLFW_OPENGL3_SAMPLE})
   add_subdirectory(examples/example_glfw_opengl3)
+endif()
+
+option(BUILD_SDL2_OPENGL3_SAMPLE "Build SDL2 + OpenGL3 example" ON)
+if (${BUILD_SDL2_OPENGL3_SAMPLE})
+  add_subdirectory(examples/example_sdl_opengl3)
 endif()
 
 configure_file(${project}-config.cmake

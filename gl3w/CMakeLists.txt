@@ -1,10 +1,7 @@
-set(component imgui-opengl3)
+set(component gl3w)
 
-set(OpenGL_GL_PREFERENCE "GLVND")
-find_package(OpenGL REQUIRED)
-
-set (srcs 
-  ${CMAKE_SOURCE_DIR}/imgui/examples/imgui_impl_opengl3.cpp)
+set(srcs
+  ${CMAKE_SOURCE_DIR}/imgui/examples/libs/gl3w/GL/gl3w.c)
 add_library(${component} ${srcs})
 
 # namespaced alias
@@ -12,16 +9,9 @@ add_library(${project}::${component} ALIAS ${component})
 
 target_include_directories(${component}
   PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui/examples>
-    $<INSTALL_INTERFACE:imgui_impl_opengl3.h>
-    ${GLLOADER_INCLUDES}
-    PRIVATE
-      ${CMAKE_SOURCE_DIR}/imgui)
-
-target_link_libraries(${component}
-  ${GLLOADER_LIBRARIES}
-  OpenGL::GL
-  OpenGL::GLX)
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui/examples/libs/gl3w>
+    $<INSTALL_INTERFACE:GL>
+)
 
 install(TARGETS ${component} EXPORT ${component}-targets
   COMPONENT ${component}
@@ -59,8 +49,9 @@ install(
 )
 
 install(
-  FILES
-  ${CMAKE_SOURCE_DIR}/imgui/examples/imgui_impl_opengl3.h
+  FILES 
+    ${CMAKE_SOURCE_DIR}/imgui/examples/libs/gl3w/GL/gl3w.h
+    ${CMAKE_SOURCE_DIR}/imgui/examples/libs/gl3w/GL/glcorearb.h
   COMPONENT ${component}
   DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 )

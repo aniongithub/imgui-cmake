@@ -8,8 +8,6 @@ find_package(OpenGL REQUIRED)
 find_package(imgui QUIET COMPONENTS imgui-core imgui-glfw imgui-opengl3)
 find_package(glfw3 REQUIRED CONFIG)
 
-find_package(GLEW REQUIRED)
-
 set(srcs ${CMAKE_SOURCE_DIR}/imgui/examples/${PROJECT_NAME}/main.cpp)
 add_executable(${PROJECT_NAME} ${srcs})
 
@@ -23,7 +21,6 @@ target_link_libraries(${PROJECT_NAME}
         imgui-core
         imgui-glfw
         imgui-opengl3
-        GLEW::glew
         OpenGL::GL
         OpenGL::GLX)
 

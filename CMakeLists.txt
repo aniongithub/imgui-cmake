@@ -7,6 +7,29 @@ project(${project})
 
 option(BUILD_SHARED_LIBS "Build shared libs" ON)
 
+# Choose a GL loader for this build/install
+
+set(IMGUI_GLLOADER gl3w CACHE STRING 
+  "Choose the GL loader to use options are gl3w/glew")
+
+set(GLLOADER_INCLUDES "")
+set(GLLOADER_LIBRARIES "")
+
+# TODO: Figure out how to get gl3w's found paths correctly
+if (${IMGUI_GLLOADER} STREQUAL "gl3w")
+  set(OpenGL_GL_PREFERENCE "GLVND")
+  add_subdirectory(gl3w)
+  add_compile_definitions(IMGUI_IMPL_OPENGL_LOADER_GL3W)
+  set(GLLOADER_LIBRARIES gl3w)
+endif()
+
+if (${IMGUI_GLLOADER} STREQUAL "glew")
+  find_package(GLEW REQUIRED)
+  add_compile_definitions(IMGUI_IMPL_OPENGL_LOADER_GLEW)
+  set(GLLOADER_INCLUDES ${GLEW_INCLUDE_DIRS})
+  set(GLLOADER_LIBRARIES ${GLEW_LIBRARIES})
+endif()
+
 add_subdirectory(imgui-core)
 
 option(IMGUI_GLFW_IMPL "Build GLFW impl" ON)

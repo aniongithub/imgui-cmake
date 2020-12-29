@@ -2,11 +2,20 @@ FROM ubuntu:20.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+# nvidia docker runtime env
+ENV NVIDIA_VISIBLE_DEVICES \
+        ${NVIDIA_VISIBLE_DEVICES:-all}
+ENV NVIDIA_DRIVER_CAPABILITIES \
+        ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics,compat32,utility
+
 RUN apt-get update &&\
     apt-get install -y \
         build-essential \
         cmake \
         git \
+        libglfw3-dev \
+        libglew-dev \
         xorg-dev \
-        libgl1-mesa-dev \
-        libglu1-mesa-dev
+        apt-utils \
+        dialog \
+        x11-apps

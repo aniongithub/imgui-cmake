@@ -1,0 +1,2 @@
+include(${CMAKE_CURRENT_LIST_DIR}/impl-opengl2-config-version.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/impl-opengl2-targets.cmake)

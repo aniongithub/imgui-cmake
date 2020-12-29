@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "GLFW_OpenGL3",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/build/examples/example_glfw_opengl3/imgui_opengl3_example",

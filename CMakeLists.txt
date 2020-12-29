@@ -7,13 +7,27 @@ project(${project})
 
 option(BUILD_SHARED_LIBS "Build shared libs" ON)
 
-# TODO: Add options to include these components/directories
 add_subdirectory(imgui-core)
-add_subdirectory(imgui-glfw)
-add_subdirectory(imgui-opengl2)
-add_subdirectory(imgui-opengl3)
 
-add_subdirectory(examples/example_glfw_opengl3)
+option(IMGUI_GLFW_IMPL "Build GLFW impl" ON)
+if (${IMGUI_GLFW_IMPL})
+  add_subdirectory(imgui-glfw)
+endif()
+
+option(IMGUI_OPENGL2_IMPL "Build OpenGL2 impl" OFF)
+if (${IMGUI_OPENGL2_IMPL})
+  add_subdirectory(imgui-opengl2)
+endif()
+
+option(IMGUI_OPENGL3_IMPL "Build OpenGL3 impl" ON)
+if (${IMGUI_OPENGL3_IMPL})
+  add_subdirectory(imgui-opengl3)
+endif()
+
+option(IMGUI_GLFW_OPENGL3_SAMPLE "Build GLFW + OpenGL3 example" ON)
+if (${IMGUI_GLFW_OPENGL3_SAMPLE})
+  add_subdirectory(examples/example_glfw_opengl3)
+endif()
 
 configure_file(${project}-config.cmake
   "${CMAKE_BINARY_DIR}/${project}-config.cmake"

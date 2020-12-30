@@ -53,5 +53,5 @@ install(
     ${CMAKE_SOURCE_DIR}/imgui/examples/libs/gl3w/GL/gl3w.h
     ${CMAKE_SOURCE_DIR}/imgui/examples/libs/gl3w/GL/glcorearb.h
   COMPONENT ${component}
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/include
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/include/GL
 )

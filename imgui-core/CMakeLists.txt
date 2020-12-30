@@ -14,6 +14,7 @@ target_include_directories(${component}
   PUBLIC
     $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui>
     $<INSTALL_INTERFACE:imgui.h>
+    $<INSTALL_INTERFACE:imgui_internal.h>
 )
 
 install(TARGETS ${component} EXPORT ${component}-targets
@@ -54,6 +55,7 @@ install(
 install(
   FILES 
     ${CMAKE_SOURCE_DIR}/imgui/imgui.h
+    ${CMAKE_SOURCE_DIR}/imgui/imgui_internal.h
     ${CMAKE_SOURCE_DIR}/imgui/imconfig.h
     ${CMAKE_SOURCE_DIR}/imgui/imstb_rectpack.h
     ${CMAKE_SOURCE_DIR}/imgui/imstb_textedit.h

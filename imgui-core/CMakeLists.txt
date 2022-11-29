@@ -4,6 +4,7 @@ add_library(${component}
   ${CMAKE_SOURCE_DIR}/imgui/imgui.cpp
   ${CMAKE_SOURCE_DIR}/imgui/imgui_draw.cpp
   ${CMAKE_SOURCE_DIR}/imgui/imgui_widgets.cpp
+  ${CMAKE_SOURCE_DIR}/imgui/imgui_tables.cpp
   ${CMAKE_SOURCE_DIR}/imgui/imgui_demo.cpp
   )
 

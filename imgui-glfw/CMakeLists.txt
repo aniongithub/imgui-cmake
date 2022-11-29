@@ -4,14 +4,14 @@ set(OpenGL_GL_PREFERENCE "GLVND")
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED CONFIG)
 
-add_library(${component} ${CMAKE_SOURCE_DIR}/imgui/examples/imgui_impl_glfw.cpp)
+add_library(${component} ${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_glfw.cpp)
 
 # namespaced alias
 add_library(${project}::${component} ALIAS ${component})
 
 target_include_directories(${component}
   PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui/examples>
+    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui/backends>
     $<INSTALL_INTERFACE:imgui_impl_glfw.h>
 )
 

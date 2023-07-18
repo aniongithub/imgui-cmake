@@ -21,3 +21,8 @@ RUN apt-get update &&\
         apt-utils \
         dialog \
         x11-apps
+
+WORKDIR /usr/local/src
+RUN git clone https://github.com/skaslev/gl3w.git &&\
+    cd gl3w && mkdir build && cd build &&\
+    cmake .. && make && make install

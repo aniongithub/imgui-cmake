@@ -60,7 +60,7 @@ install(
 
 install(
   FILES
-  ${CMAKE_SOURCE_DIR}/imgui/examples/imgui_impl_opengl2.h
+  ${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_opengl2.h
   COMPONENT ${component}
   DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 )

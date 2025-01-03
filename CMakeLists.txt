@@ -6,6 +6,9 @@ set(version 1.79)
 project(${project})
 
 option(BUILD_SHARED_LIBS "Build shared libs" ON)
+if(NOT BUILD_SHARED_LIBS)
+  set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
 
 # Choose a GL loader for this build/install
 

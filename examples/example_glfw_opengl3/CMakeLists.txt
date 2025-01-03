@@ -8,7 +8,7 @@ find_package(OpenGL REQUIRED)
 find_package(imgui QUIET COMPONENTS imgui-core imgui-glfw imgui-opengl3)
 find_package(glfw3 REQUIRED CONFIG)
 
-set(srcs ${CMAKE_SOURCE_DIR}/imgui/examples/${PROJECT_NAME}/main.cpp)
+set(srcs ${CMAKE_CURRENT_SOURCE_DIR}/../../imgui/examples/${PROJECT_NAME}/main.cpp)
 add_executable(${PROJECT_NAME} ${srcs})
 
 target_include_directories(${PROJECT_NAME} PRIVATE

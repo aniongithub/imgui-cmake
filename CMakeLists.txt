@@ -9,13 +9,14 @@ option(BUILD_SHARED_LIBS "Build shared libs" ON)
 
 # Choose a GL loader for this build/install
 
-set(IMGUI_GLLOADER gl3w CACHE STRING 
+set(IMGUI_GLLOADER glew CACHE STRING 
   "Choose the GL loader to use options are gl3w/glew")
 
 set(GLLOADER_INCLUDES "")
 set(GLLOADER_LIBRARIES "")
 
 if (${IMGUI_GLLOADER} STREQUAL "gl3w")
+  message(STATUS "Using GL3W...")
   set(OpenGL_GL_PREFERENCE "GLVND")
   find_package(GL3W REQUIRED)
   add_compile_definitions(IMGUI_IMPL_OPENGL_LOADER_GLEW)
@@ -24,6 +25,7 @@ if (${IMGUI_GLLOADER} STREQUAL "gl3w")
 endif()
 
 if (${IMGUI_GLLOADER} STREQUAL "glew")
+  message(STATUS "Using glew...")
   find_package(GLEW REQUIRED)
   add_compile_definitions(IMGUI_IMPL_OPENGL_LOADER_GLEW)
   set(GLLOADER_INCLUDES ${GLEW_INCLUDE_DIRS})

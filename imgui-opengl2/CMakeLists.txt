@@ -5,17 +5,17 @@ find_package(OpenGL REQUIRED)
 
 find_package(glfw3 REQUIRED CONFIG)
 
-add_library(${component} ${CMAKE_SOURCE_DIR}/imgui/examples/imgui_impl_opengl2.cpp)
+add_library(${component} ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/examples/imgui_impl_opengl2.cpp)
 
 # namespaced alias
 add_library(${project}::${component} ALIAS ${component})
 
 target_include_directories(${component}
   PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui/examples>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../imgui/examples>
     $<INSTALL_INTERFACE:imgui_impl_opengl2.h>
   PRIVATE
-    ${CMAKE_SOURCE_DIR}/imgui
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui
 )
 
 target_link_libraries(${component}
@@ -60,7 +60,7 @@ install(
 
 install(
   FILES
-  ${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_opengl2.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/backends/imgui_impl_opengl2.h
   COMPONENT ${component}
   DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 )

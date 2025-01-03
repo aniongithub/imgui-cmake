@@ -1,11 +1,11 @@
 set(component imgui-core)
 
 add_library(${component} 
-  ${CMAKE_SOURCE_DIR}/imgui/imgui.cpp
-  ${CMAKE_SOURCE_DIR}/imgui/imgui_draw.cpp
-  ${CMAKE_SOURCE_DIR}/imgui/imgui_widgets.cpp
-  ${CMAKE_SOURCE_DIR}/imgui/imgui_tables.cpp
-  ${CMAKE_SOURCE_DIR}/imgui/imgui_demo.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui_draw.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui_widgets.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui_tables.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui_demo.cpp
   )
 
 # namespaced alias
@@ -13,7 +13,7 @@ add_library(${project}::${component} ALIAS ${component})
 
 target_include_directories(${component}
   PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../imgui>
     $<INSTALL_INTERFACE:imgui.h>
     $<INSTALL_INTERFACE:imgui_internal.h>
 )
@@ -55,12 +55,12 @@ install(
 
 install(
   FILES 
-    ${CMAKE_SOURCE_DIR}/imgui/imgui.h
-    ${CMAKE_SOURCE_DIR}/imgui/imgui_internal.h
-    ${CMAKE_SOURCE_DIR}/imgui/imconfig.h
-    ${CMAKE_SOURCE_DIR}/imgui/imstb_rectpack.h
-    ${CMAKE_SOURCE_DIR}/imgui/imstb_textedit.h
-    ${CMAKE_SOURCE_DIR}/imgui/imstb_truetype.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imgui_internal.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imconfig.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imstb_rectpack.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imstb_textedit.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/imstb_truetype.h
   COMPONENT ${component}
   DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 )

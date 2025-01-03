@@ -4,7 +4,7 @@ set(OpenGL_GL_PREFERENCE "GLVND")
 find_package(OpenGL REQUIRED)
 
 set (srcs 
-  ${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_opengl3.cpp)
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/backends/imgui_impl_opengl3.cpp)
 add_library(${component} ${srcs})
 
 # namespaced alias
@@ -12,11 +12,11 @@ add_library(${project}::${component} ALIAS ${component})
 
 target_include_directories(${component}
   PUBLIC
-    $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/imgui/backends>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../imgui/backends>
     $<INSTALL_INTERFACE:imgui_impl_opengl3.h>
     ${GLLOADER_INCLUDES}
     PRIVATE
-      ${CMAKE_SOURCE_DIR}/imgui)
+      ${CMAKE_CURRENT_SOURCE_DIR}/../imgui)
 
 target_link_libraries(${component}
   ${GLLOADER_LIBRARIES}
@@ -60,7 +60,7 @@ install(
 
 install(
   FILES
-  ${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_opengl3.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/../imgui/backends/imgui_impl_opengl3.h
   COMPONENT ${component}
   DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 )
